@@ -1,0 +1,21 @@
+set nocompatible
+syntax on
+execute pathogen#infect()
+set backspace=2
+set laststatus=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+set expandtab
+set smarttab
+set number
+set textwidth=79
+set wrap
+set cursorline
+set listchars=tab:>-,trail:-
+set list!
+set colorcolumn=80
+set background=dark
+colorscheme solarized
+
+filetype plugin indent on

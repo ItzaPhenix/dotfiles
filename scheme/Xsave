@@ -1,0 +1,7 @@
+xterm*locale:           UTF-8
+xterm*Foreground:       white 
+xterm*Background:       black
+
+!blue
+*color4:     #6465FF
+*color12:    #879EFF

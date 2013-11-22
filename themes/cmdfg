@@ -1,0 +1,2 @@
+metalock --theme ../../../../../home/dupuis_a/themes
+convert bg.jpg -crop 326x167+477+428 box.jpg
