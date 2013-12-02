@@ -16,7 +16,7 @@ else
 
     if [ "$arg" = "--with-debug" ] && [ $a -eq 0 ];
     then
-        echo "CFLAGS+=-g3 -fvar-tracking" >> makefile.rules
+        echo "CXXFLAGS+=-g3 -fvar-tracking" >> makefile.rules
 
     elif [ "$arg" = "--with-gcc" ];
     then
