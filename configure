@@ -1,0 +1,38 @@
+#! /bin/sh
+
+a=0
+
+echo -n "" > makefile.rules
+
+if [ $# -eq 0 ];
+then
+    echo "CXX=g++" >> makefile.rules
+else
+
+    for arg in $@;
+    do
+
+    echo "$arg"
+
+    if [ "$arg" = "--with-debug" ] && [ $a -eq 0 ];
+    then
+        echo "CFLAGS+=-g3 -fvar-tracking" >> makefile.rules
+
+    elif [ "$arg" = "--with-gcc" ];
+    then
+        echo "CXX=g++" >> makefile.rules
+
+    elif [ "$arg" = "--with-clang" ];
+    then
+        a=1
+        echo "CXX=clang++33" >> makefile.rules
+    elif [ "$arg" = "--help" ]
+    then
+        echo "Usage : ./configure [option] ...\n
+        ./configure --with-gcc to compile with gcc\n
+        ./configure --with-clang to compile with clang\n
+        ./configure --with-debug to add debugs flag\n
+        ./configure --with-help to display the help\n"
+    fi
+    done
+fi
