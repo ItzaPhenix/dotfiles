@@ -1,32 +1,40 @@
 #CC=gcc
-CXX?=g++
+CXX=g++
 # CPPFLAGS=
 #CFLAGS=-Wall -Werror -Wextra -pedantic -std=c99
-CXXFLAGS=-Wall -Wextra -Werror -pedantic -std=c++11
-LDFLAGS=-L. -lreplace
-LIB=libreplace.so
+CXXFLAGS=-Wall -Wextra -Werror -std=c++11 -pedantic -O3
+#LDFLAGS=-L. -lmatrix
+#LIB=libmatrix.so
 
 DIR=src
-OUT=
-S=replace.cc
+OUT=bistromathique
+S=main.cc \
+  lexer.cc \
+  integer.cc \
+  parser.cc \
+  lex_error.cc \
+  already_exists.cc \
+  shunting_yard.cc \
+  parse_error.cc \
+  calc_core.cc
 SRC=$(addprefix $(DIR)/,$(S))
 
 DIRT=tests
-TEST=test
-ST=test.cc
+TEST=a.out
+ST=
 SRCT=$(addprefix $(DIRT)/,$(ST))
 
 #OBJS=$(SRC:.c=.o)
 #OBJFPIC=$(SRC:.c=.o.fpic)
-#OBJSXX=$(SRC:.cc=.o)
-OBJFPICXX=$(SRC:.cc=.o.fpic)
+OBJSXX=$(SRC:.cc=.o)
+#OBJFPICXX=$(SRC:.cc=.o.fpic)
 LOGIN=dupuis_a
-PROJECT=replace
+PROJECT=bistromathique
 TARBALL=$(LOGIN)-$(PROJECT).tar.bz2
 
 -include makefile.rules
 
-all: $(LIB)
+all: $(OUT)
 
 #$(LIB): $(OBJS)
 #	ar csr $@ $^
@@ -34,8 +42,8 @@ all: $(LIB)
 # $(LIB): $(OBJFPIC)
 # 	$(CC) --shared -o $@ $^
 
-$(LIB): $(OBJFPICXX)
-	$(CXX) --shared -o $@ $^
+#$(LIB): $(OBJFPICXX)
+#	$(CXX) --shared -o $@ $^
 
 #%.o: %.c
 #	$(CC) $(CFLAGS) -c $^
@@ -46,28 +54,32 @@ $(LIB): $(OBJFPICXX)
 #%.o: %.cc
 #	$(CXX) $(CXXFLAGS) -c $^
 
-%.o.fpic: %.cc
-	$(CXX) $(CXXFLAGS) -fPIC -c -o $@ $^
+#%.o.fpic: %.cc
+#	$(CXX) $(CXXFLAGS) -fPIC -c -o $@ $^
 
-#$(OUT): $(SRC)
-#	$(CXX) $(CXXFLAGS) -o $@ $^
+$(OUT): $(OBJSXX)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm -rf $(LIB) $(OBJFPICXX) $(DIRT)/$(TEST)
+	rm -rf $(OUT) $(OBJSXX) $(DIRT)/$(TEST) $(OUT).core
 
-#distclean:
-#	rm -f makefile.rules
+distclean: clean
+	rm -f makefile.rules
+	$(RM) -r doc/latex doc/html
 
 check:
-	$(CXX) $(CXXFLAGS)  -o $(DIRT)/$(TEST) $(SRCT) $(LDFLAGS)
-	./$(DIRT)/$(TEST)
+# 	$(CXX) $(CXXFLAGS)  -o $(DIRT)/$(TEST) $(SRCT) $(LDFLAGS)
+	time ./$(OUT) < $(DIRT)/input.in
 
 export:
 	git archive HEAD --prefix=$(LOGIN)-$(PROJECT) | bzip2 > $(TARBALL)
 
-#doc:
-#	$(MAKE) -C doc all
+doc:
+	$(MAKE) -C doc all
+
+display: doc
+	evince doc/latex/refman.pdf
 
 .PHONY: clean
 .PHONY: check
-#.PHONY: doc
+.PHONY: doc
