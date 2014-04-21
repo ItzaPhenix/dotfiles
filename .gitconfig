@@ -1,0 +1,37 @@
+# Basic gitconfig by Hakril !
+
+[user]
+    name = Dupuis Guillaume
+    email = dupuis_a@epita.fr
+[alias]
+    st = status
+    gcat = cat-file -p
+    graph = log --graph --pretty=oneline
+    all = log --graph --pretty=oneline --all
+    ci              = commit
+    cim             = commit -m
+    co              = checkout
+    br              = branch -a
+    lg              = log --graph --pretty=tformat:'%Cred%h%Creset -%C(blue)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
+    lga             = log --graph --pretty=tformat:'%Cred%h%Creset -%C(blue)%d%Creset %s %Cgreen(%an %cr)%Creset' --all
+    logfull         = log --pretty=fuller --graph --stat -p
+    cat             = cat-file -p
+    unstage         = reset HEAD
+    uncommit        = update-ref HEAD HEAD^
+    uncommithard    = reset --hard HEAD^
+    undomerge       = reset --hard ORIG_HEAD
+    oups            = commit -a --amend -C HEAD
+[color]
+    ui = true
+[log]
+    decorate = full
+[help]
+    autocorrect = 1
+[push]
+        #Pour avoir la vraie technique de push (qui push tous les nom qui match)
+        #tu peux mettre 'matching'
+    default = simple
+[core]
+    excludesfile = ~/.gitignore
+[ui]
+    color = auto
