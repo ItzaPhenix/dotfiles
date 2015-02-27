@@ -1,0 +1,43 @@
+execute pathogen#infect()
+set nocompatible
+syntax on
+set backspace=2
+set laststatus=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+set expandtab
+set smarttab
+set number
+set mouse=a
+set textwidth=79
+set wrap
+set listchars=tab:>-,trail:-
+set list!
+set colorcolumn=80
+set cursorline
+set background=dark
+colorscheme solarized
+filetype plugin indent on
+
+" airline
+set t_Co=256
+let g:airline_powerline_fonts = 1
+" fugitive
+let g:airline#extensions#branch#enabled = 1
+
+" NERDTree options
+let NERDTreeAutoCenter = 1
+let NERDTreeCaseSensitiveSort = 1
+let NERDTreeHighlightCursorline = 1
+let NERDTreeMouseMode = 1
+" let NERDTreeIgnore=['.*\.o$']
+" let NERDTreeIgnore+=['.*\~$']
+" let NERDTreeIgnore+=['.*\.out$']
+" let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
+" let NERDTreeIgnore+=['.*\.pyc$']
+" let NERDTreeIgnore+=['.*\.class$']
+"
+" Key remaps
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :TagbarToggle<CR>
