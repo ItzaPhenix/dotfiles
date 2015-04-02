@@ -1,6 +1,6 @@
 [user]
-    name = Dupuis Guillaume
-    email = g.dupuis.tourniaire@gmail.com
+    name = 
+    email = 
 [alias]
     st = status
     gcat = cat-file -p
@@ -8,6 +8,7 @@
     all = log --graph --pretty=oneline --all
     ci              = commit
     cim             = commit -m
+    cs              = commit -s
     co              = checkout
     br              = branch -a
     lg              = log --graph --pretty=tformat:'%Cred%h%Creset -%C(blue)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
@@ -34,3 +35,10 @@
             #                excludesfile = ~/.gitignore
             #                [ui]
             #                    color = auto
+[sendemail]
+    cc = 
+    smtpuser = 
+    smtpserver = smtp.googlemail.com
+    smtpencryption = tls
+    smtpserverport = 587
+    suppresscc = self
