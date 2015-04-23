@@ -48,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git git-extras web-search cp)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,7 +78,8 @@ alias l='ll'
 alias la='ls -la'
 alias lla='ls -la'
 alias reload="source ~/.zshrc"
+alias mvb='sudo mount -t vboxsf VB_Share'
 
 PROMPT="%(!.%F{red}%B.%F{white})%n %F{cyan}%~%f%(?.%F{white}.%F{red})%#%f%b "
-RPROMPT='%F{blue}%T%f %(?.%F{green}.%F{red}%B)%?%f'
+RPROMPT='%F{cyan}%T%f %(?.%F{green}.%F{red}%B)%?%f'
 export NNTPSERVER='news.epita.fr'
