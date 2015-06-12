@@ -77,9 +77,13 @@ alias ll='ls -l'
 alias l='ll'
 alias la='ls -la'
 alias lla='ls -la'
+alias setintl='setxkbmap us intl'
+alias setus='setxkbmap us'
 alias reload="source ~/.zshrc"
 alias mvb='sudo mount -t vboxsf VB_Share'
 
 PROMPT="%(!.%F{red}%B.%F{white})%n %F{cyan}%~%f%(?.%F{white}.%F{red})%#%f%b "
 RPROMPT='%F{cyan}%T%f %(?.%F{green}.%F{red}%B)%?%f'
 export NNTPSERVER='news.epita.fr'
+
+export PATH=$PATH:/usr/local/gcc-arm-none-eabi-4_9-2015q1/bin
