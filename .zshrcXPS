@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/gnat/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -73,10 +73,10 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 export PAGER="most"
-alias ll='ls -l'
+alias ll='ls -lh'
 alias l='ll'
-alias la='ls -la'
-alias lla='ls -la'
+alias la='ls -lah'
+alias lla='ls -lah'
 alias setintl='setxkbmap us intl'
 alias setus='setxkbmap us'
 alias reload="source ~/.zshrc"
@@ -87,3 +87,6 @@ RPROMPT='%F{cyan}%T%f %(?.%F{green}.%F{red}%B)%?%f'
 export NNTPSERVER='news.epita.fr'
 
 export PATH=$PATH:/usr/local/gcc-arm-none-eabi-4_9-2015q1/bin
+
+# added by travis gem
+[ -f /home/itzphoenix/.travis/travis.sh ] && source /home/itzphoenix/.travis/travis.sh
