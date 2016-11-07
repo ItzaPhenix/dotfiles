@@ -27,6 +27,7 @@
 [help]
     autocorrect = 1
 [push]
+    default = upstream
             #Pour avoir la vraie technique de push (qui push tous les nom qui
             #match)
             #        #tu peux mettre 'matching'
