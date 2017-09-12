@@ -81,12 +81,28 @@ alias setintl='setxkbmap us intl'
 alias setus='setxkbmap us'
 alias reload="source ~/.zshrc"
 alias mvb='sudo mount -t vboxsf VB_Share'
+alias docker="sudo docker"
+alias docker-compose="sudo docker-compose"
 
-PROMPT="%(!.%F{red}%B.%F{white})%n %F{cyan}%~%f%(?.%F{white}.%F{red})%#%f%b "
-RPROMPT='%F{cyan}%T%f %(?.%F{green}.%F{red}%B)%?%f'
+PROMPT="%(!.%F{red}%B.%F{yellow})%n@%M:%F{red}%B%~%f%(?.%F{orange}.%F{red}%B)$%f%b "
+RPROMPT='%F{yellow}%T%f %(?.%F{green}.%F{red}%B)%?%f'
+#PROMPT="%(!.%F{red}%B.%F{white})%n@%F{green}%m %F{cyan}%~%f%(?.%F{white}.%F{red})%#%f%b "
+#RPROMPT='%F{cyan}%T%f %(?.%F{green}.%F{red}%B)%?%f'
 export NNTPSERVER='news.epita.fr'
 
 export PATH=$PATH:/usr/local/gcc-arm-none-eabi-4_9-2015q1/bin
 
 # added by travis gem
 [ -f /home/itzphoenix/.travis/travis.sh ] && source /home/itzphoenix/.travis/travis.sh
+# enable color support of ls and also add handy aliases
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
