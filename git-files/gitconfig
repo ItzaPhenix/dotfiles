@@ -4,13 +4,22 @@
 [merge]
     defaultToUpstream = true
     tool = vimdiff
+[mergetool]
+        keepBackup = false
+[url "git@github.com:"]
+        insteadOf = https://github.com/
 [push]
     default = upstream
 [alias]
+    mergerc = merge --no-ff --no-commit
+    mergestable = merge --no-ff
+    mergeunstable = merge --no-ff --allow-unrelated-histories
     st = status
     gcat = cat-file -p
     graph = log --graph --pretty=oneline
     all = log --graph --pretty=oneline --all
+    sum = log --name-status --oneline
+    sumg = log --name-status --oneline --graph
     ci              = commit
     cim             = commit -m
     cs              = commit -s
